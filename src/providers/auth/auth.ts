@@ -16,11 +16,11 @@ export class AuthProvider {
     public angularFireAuth: AngularFireAuth) {
   }
  
-  login(user: User): firebase.Promise<any> {
+  login(user: User): Promise<any> {
     return this.angularFireAuth.auth.signInWithEmailAndPassword(user.email, user.password);
   }
   
-  addUser(user): firebase.Promise<any> {
+  addUser(user): Promise<any> {
     return this.angularFireAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
   } 
 }
