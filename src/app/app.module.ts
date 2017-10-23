@@ -22,7 +22,7 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG)
