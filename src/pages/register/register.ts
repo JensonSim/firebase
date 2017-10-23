@@ -4,7 +4,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
  
 import { LoginPage } from '../login/login';
 import { ProfilePage } from '../profile/profile';
-import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from "angularfire2/database"; 
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { AuthProvider } from '../../providers/auth/auth';
  
 import { User } from '../models/user';
@@ -16,7 +16,7 @@ import { User } from '../models/user';
 export class RegisterPage {
  
     user: any = {} as User;
-    items: FirebaseListObservable<any>;
+    items: AngularFireList<any>;
  
     constructor(public navCtrl: NavController,
         private loadingCtrl: LoadingController,
