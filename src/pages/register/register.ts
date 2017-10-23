@@ -26,14 +26,14 @@ export class RegisterPage {
         this.items = this.afDB.list('/users');
     }
  
-    async signup() {
+    signup() {
         let loading = this.loadingCtrl.create({
             content: 'Loading...'
         });
         loading.present();
  
         try {
-            await this.authService.addUser(this.user).then(
+            this.authService.addUser(this.user).then(
                 (user: any) => {
                     console.log(user);
                     //DB insert

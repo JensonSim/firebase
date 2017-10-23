@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase, AngularFireList, PathReference } from 'angularfire2/database';
  
 @Component({
   selector: 'page-list',
@@ -10,8 +10,12 @@ export class ListPage {
   icons: string[];
   items: AngularFireList<any>;
  
-  constructor(private afDB: AngularFireDatabase) {
-    this.items = afDB.list('/users');
+  constructor(afDB: AngularFireDatabase) {
+    this.items = afDB.list(this.newFunction());
   }
+
+    private newFunction(): PathReference {
+        return '/users';
+    }
 }
  
