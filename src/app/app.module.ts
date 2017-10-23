@@ -19,7 +19,6 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
-import { ProfilePage } from '../pages/profile/profile';
 import { RegisterPage } from '../pages/register/register';
  
 //Firebase auth key

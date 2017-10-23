@@ -10,12 +10,7 @@ export class ListPage {
   icons: string[];
   items: AngularFireList<any>;
  
-  constructor(afDB: AngularFireDatabase) {
-    this.items = afDB.list(this.newFunction());
+  constructor(private afDB: AngularFireDatabase) {
+    this.items = afDB.list('users');
   }
-
-    private newFunction(): PathReference {
-        return '/users';
-    }
 }
- 
