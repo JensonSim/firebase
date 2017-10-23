@@ -3,7 +3,8 @@ import { NavController, LoadingController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
  
 import { LoginPage } from '../login/login';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { ProfilePage } from '../profile/profile';
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from "angularfire2/database"; 
 import { AuthProvider } from '../../providers/auth/auth';
  
 import { User } from '../models/user';
@@ -15,11 +16,14 @@ import { User } from '../models/user';
 export class RegisterPage {
  
     user: any = {} as User;
+    items: FirebaseListObservable<any>;
  
     constructor(public navCtrl: NavController,
         private loadingCtrl: LoadingController,
-        private authService: AuthProvider) {
+        private authService: AuthProvider,
+        private afDB: AngularFireDatabase) {
         // Firebase database
+        this.items = this.afDB.list('/users');
     }
  
     async signup() {
@@ -32,6 +36,15 @@ export class RegisterPage {
             await this.authService.addUser(this.user).then(
                 (user: any) => {
                     console.log(user);
+                    //DB insert
+                    this.items.push(
+                        {
+                            email: user.email,
+                            uid: user.uid
+                        }
+                    );
+ 
+                    this.navCtrl.setRoot(ProfilePage);
                     loading.dismiss();
                 }, (error) => {
                     loading.dismiss();

@@ -1,25 +1,17 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ListPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
-@IonicPage()
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+ 
 @Component({
   selector: 'page-list',
-  templateUrl: 'list.html',
+  templateUrl: 'list.html'
 })
 export class ListPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  selectedItem: any;
+  icons: string[];
+  items: FirebaseListObservable<any>;
+ 
+  constructor(private afDB: AngularFireDatabase) {
+    this.items = afDB.list('/users');
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ListPage');
-  }
-
 }
+ 
