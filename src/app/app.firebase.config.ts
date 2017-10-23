@@ -1,8 +1,8 @@
 export const FIREBASE_CONFIG = {
-    apiKey: " ",
+    apiKey: "AIzaSyDpFrV-PesF1vICFcAVgldRk5Feurfs2Io",
     authDomain: " ",
-    databaseURL: " ",
-    projectID: " ",
+    databaseURL: "https://fir-practice-36b52.firebaseio.com/",
+    projectID: "fir-practice-36b52",
     storageBucket: " ",
     messagingSensderID: " ",
 };
