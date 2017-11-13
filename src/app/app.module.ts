@@ -7,6 +7,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Camera } from '@ionic-native/camera';
  
 //Firebase Module
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -20,6 +21,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
+import { ProfilePage } from '../pages/profile/profile';
  
 //Firebase auth key
 import { FIREBASE_CONFIG } from './config/app.firebase.config';
@@ -34,7 +36,8 @@ import { AuthProvider } from '../providers/auth/auth';
     HomePage,
     ListPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    ProfilePage
   ],
   imports: [
     BrowserModule,
@@ -51,14 +54,17 @@ import { AuthProvider } from '../providers/auth/auth';
     HomePage,
     ListPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    ProfilePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
+    Camera,
     AuthProvider
   ]
 })
 export class AppModule {
 }
+ 
