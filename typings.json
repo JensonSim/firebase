@@ -1,5 +1,6 @@
 {
   "globalDependencies": {
+    "cordova-plugin-camera": "registry:dt/cordova-plugin-camera#0.0.0+20160819210047",
     "firebase": "registry:dt/firebase#2.4.1+20160510002910"
   }
 }

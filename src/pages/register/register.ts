@@ -25,7 +25,8 @@ export class RegisterPage {
         // Firebase database
         this.items = this.afDB.list('/users');
     }
- 
+   
+
     signup() {
         let loading = this.loadingCtrl.create({
             content: 'Loading...'
@@ -39,8 +40,9 @@ export class RegisterPage {
                     //DB insert
                     this.items.push(
                         {
+                            uid: user.uid,
                             email: user.email,
-                            uid: user.uid
+                            
                         }
                     );
  
