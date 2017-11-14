@@ -52,7 +52,7 @@ export class ProfilePage {
  
   choosePhoto() {
     const options: CameraOptions = {
-      quality: 50,
+      quality: 80,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
       allowEdit: true,
       destinationType: this.camera.DestinationType.DATA_URL,
