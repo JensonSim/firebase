@@ -35,13 +35,13 @@ export class MyApp {
     this.afAuth.authState.subscribe(auth => {
       if (auth) {
         this.rootPage = TabsPage;
-        this.pages = [
-          { title: 'Profile', component: ProfilePage }
-        ];
-      } else {
-        this.rootPage = LoginPage;
-      }
-    });
+        //this.pages = [
+        //  { title: 'Profile', component: ProfilePage }
+       // ];
+      //} else {
+      //  this.rootPage = LoginPage;
+     // }
+    }});//);
  
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -49,7 +49,7 @@ export class MyApp {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
-  }
+  };
  
   openPage(page) {
     // Reset the content nav to have just this page
