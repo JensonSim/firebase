@@ -9,12 +9,10 @@
  
 <ion-content>
   <ion-list>
-   <button ion-item *ngFor="let item of items.user">
-     
-      <ion-row>
-          <ion-col> {{item.email}} </ion-col>          
-          <ion-col> {{item.email}} </ion-col>
-          <ion-col> {{item.uid}} </ion-col>
+   <button ion-item *ngFor="let user of users">
+        <ion-row>
+          <ion-col> {{user.email}} </ion-col>          
+          <ion-col> {{user.uid}} </ion-col>
         </ion-row>
     
     </button>

@@ -8,7 +8,6 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { AuthProvider } from '../../providers/auth/auth';
  
 import { User } from '../models/user';
- 
 @Component({
     selector: 'page-register',
     templateUrl: 'register.html',

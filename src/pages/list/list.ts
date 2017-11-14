@@ -3,6 +3,8 @@ import { AngularFireDatabase, AngularFireList, PathReference } from 'angularfire
 import { NavController, LoadingController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 
+
+
 @Component({
   selector: 'page-list',
   templateUrl: 'list.html'
@@ -10,7 +12,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 export class ListPage {
   selectedItem: any;
   icons: string[];
-  items: AngularFireList<any>;
+  items: AngularFireList<string>;
   
  
   constructor(private afDB: AngularFireDatabase) {

@@ -7,6 +7,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
+import { ListPage } from '../pages/list/list';
+
  
 @Component({
   templateUrl: 'app.html'
