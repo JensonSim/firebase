@@ -1,10 +1,16 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
- 
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
 import { LoginPage } from '../login/login';
 import { ProfilePage } from '../profile/profile';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import {
+    AngularFireDatabase,
+    FirebaseObjectObservable,
+    FirebaseListObservable
+  } from 'angularfire2/database-deprecated';
+
 import { AuthProvider } from '../../providers/auth/auth';
  
 import { User } from '../models/user';
@@ -16,7 +22,7 @@ import { User } from '../models/user';
 export class RegisterPage {
  
     user: any = {} as User;
-    items: AngularFireList<any>;
+    items: FirebaseListObservable<any>;
  
     constructor(public navCtrl: NavController,
         private loadingCtrl: LoadingController,
@@ -25,24 +31,22 @@ export class RegisterPage {
         // Firebase database
         this.items = this.afDB.list('/users');
     }
-   
-
-    signup() {
+ 
+    async signup() {
         let loading = this.loadingCtrl.create({
             content: 'Loading...'
         });
         loading.present();
  
         try {
-            this.authService.addUser(this.user).then(
+            await this.authService.addUser(this.user).then(
                 (user: any) => {
                     console.log(user);
                     //DB insert
                     this.items.push(
                         {
-                            uid: user.uid,
                             email: user.email,
-                            
+                            uid: user.uid
                         }
                     );
  
@@ -72,4 +76,3 @@ export class RegisterPage {
     }
  
 }
- 

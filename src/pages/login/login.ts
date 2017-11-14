@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController, Loading } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
- 
+
 import { RegisterPage } from '../register/register';
 import { HomePage } from '../home/home';
+import { ProfilePage } from '../profile/profile';
+
 import { AuthProvider } from '../../providers/auth/auth';
  
 import { User } from '../models/user';
@@ -29,18 +31,22 @@ export class LoginPage {
  
   signin(user: User) {
     let loading = this.loadingCtrl.create({
-      content: 'Loading...'
+      content: 'Checking information..'
     });
     loading.present();
  
     this.authService.login(this.user)
       .then(auth => {
         loading.dismiss();
-        this.navCtrl.setRoot(HomePage);
+        this.navCtrl.setRoot(ProfilePage);
       })
       .catch(err => {
         loading.dismiss();
-        alert(JSON.stringify(err));
+        let errortoast = this.loadingCtrl.create({
+          content: 'Login Failed!',
+          duration: 2000
+      });
+      errortoast.present();
       });
   }
  
