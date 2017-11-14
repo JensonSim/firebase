@@ -5,11 +5,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { LoginPage } from '../login/login';
 import { ProfilePage } from '../profile/profile';
-import {
-    AngularFireDatabase,
-    FirebaseObjectObservable,
-    FirebaseListObservable
-  } from 'angularfire2/database-deprecated';
+import {AngularFireDatabase,AngularFireList} from 'angularfire2/database';
 
 import { AuthProvider } from '../../providers/auth/auth';
  
@@ -22,7 +18,7 @@ import { User } from '../models/user';
 export class RegisterPage {
  
     user: any = {} as User;
-    items: FirebaseListObservable<any>;
+    items: AngularFireList<any>;
  
     constructor(public navCtrl: NavController,
         private loadingCtrl: LoadingController,
